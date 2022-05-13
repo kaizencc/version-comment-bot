@@ -7,10 +7,14 @@ on:
 
 jobs:
   test-this-action:
+    # if: contains(github.event.pull_request.title, 'chore(release):')
     permissions:
       pull-requests: write
     runs-on: ubuntu-latest
     steps:
-      - uses: kaizencc/version-comment-bot@main
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Comment
+        uses: kaizencc/version-comment-bot@main
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
