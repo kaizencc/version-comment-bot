@@ -5,9 +5,7 @@ import * as github from '@actions/github';
 import { loadActionOptions } from './options';
 
 async function run() {
-  console.log('here');
   const options = loadActionOptions();
-  console.log(options);
 
   const client = github.getOctokit(options.githubToken);
   const owner = github.context.repo.owner;
@@ -18,8 +16,10 @@ async function run() {
     repo,
   });
   const file = path.join(process.env.GITHUB_WORKSPACE ?? '', 'CHANGELOG.v2.md');
+  console.log(file);
   readFile(file, (_err, data) => {
     console.log(data);
+    console.log('ok', data.toString());
   });
 }
 
