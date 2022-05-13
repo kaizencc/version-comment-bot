@@ -3,6 +3,7 @@ on:
   pull_request:
     branches:
       - testing
+  workflow_dispatch: {}
 
 jobs:
   test-this-action:
