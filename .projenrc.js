@@ -11,6 +11,12 @@ const project = new GitHubActionTypeScriptProject({
     author: 'Kaizen Conroy',
     description: 'A bot that comments on PRs with the version it was released in',
     name: 'VersionCommentBot',
+    inputs: {
+      'github-token': {
+        description: 'your github token',
+        required: true,
+      },
+    },
   },
 
   // deps: [],                /* Runtime dependencies of this module. */

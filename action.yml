@@ -6,3 +6,7 @@ runs:
   main: dist/index.js
   using: node16
 author: Kaizen Conroy
+inputs:
+  github-token:
+    description: your github token
+    required: true
