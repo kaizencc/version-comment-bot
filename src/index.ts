@@ -1,4 +1,4 @@
-import { readFileSync } from 'fs';
+import { readFile } from 'fs';
 import * as path from 'path';
 import * as core from '@actions/core';
 import * as github from '@actions/github';
@@ -17,7 +17,10 @@ async function run() {
     owner,
     repo,
   });
-  console.log(readFileSync(path.join(process.env.GITHUB_WORKSPACE ?? '', 'CHANGELOG.v2.md')));
+  const file = path.join(process.env.GITHUB_WORKSPACE ?? '', 'CHANGELOG.v2.md');
+  readFile(file, (_err, data) => {
+    console.log(data);
+  });
 }
 
 run().catch(error => {
